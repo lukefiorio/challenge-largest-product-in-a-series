@@ -1,36 +1,28 @@
 class LargestProduct {
   constructor(number) {
     this.number = number;
+    this.maxProduct = 0;
+    this.position = 0;
+    for (let i = 0; i < number.length - 5; i++) {
+      let maxProductCandidate = 1;
+
+      for (let j = 0; j < 5; j++) {
+        maxProductCandidate *= Number(number.charAt(i + j));
+      }
+
+      if (maxProductCandidate > this.maxProduct) {
+        this.maxProduct = maxProductCandidate;
+        this.position = i;
+      }
+    }
   }
 
   getLargestProduct() {
-    let maxProduct = 0;
-    for (let i = 0; i < this.number.length - 5; i++) {
-      let maxProductCandidate = 1;
-      for (let j = 0; j < 5; j++) {
-        maxProductCandidate *= Number(this.number.charAt(i + j));
-      }
-      if (maxProductCandidate > maxProduct) {
-        maxProduct = maxProductCandidate;
-      }
-    }
-    return maxProduct;
+    return this.maxProduct;
   }
 
   getLargestProductPosition() {
-    let maxProduct = 0;
-    let position = 0;
-    for (let i = 0; i < this.number.length - 5; i++) {
-      let maxProductCandidate = 1;
-      for (let j = 0; j < 5; j++) {
-        maxProductCandidate *= Number(this.number.charAt(i + j));
-      }
-      if (maxProductCandidate > maxProduct) {
-        maxProduct = maxProductCandidate;
-        position = i;
-      }
-    }
-    return position;
+    return this.position;
   }
 }
 
