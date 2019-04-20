@@ -3,6 +3,7 @@ class LargestProduct {
     this.number = number;
     this.maxProduct = 0;
     this.position = 0;
+
     for (let i = 0; i < number.length - 5; i++) {
       let maxProductCandidate = 1;
 
